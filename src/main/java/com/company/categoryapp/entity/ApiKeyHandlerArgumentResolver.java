@@ -17,11 +17,11 @@ public class ApiKeyHandlerArgumentResolver implements HandlerMethodArgumentResol
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         String value = webRequest.getHeader("api-key");
 
-        if(!value.equals("1234")){
-            throw new ApiKeyException("Unauthorized: Please Input api-key 1234");
+        if(value.equals("1234")){
+            return new ApiKey(value);
         }
         else{
-            return new ApiKey(value);
+            throw new ApiKeyException("Unauthorized: Please Input api-key 1234");
         }
     }
 }

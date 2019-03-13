@@ -99,6 +99,8 @@ public class CategoryController {
 
         String json = objectMapper.writeValueAsString(categoryList);
 
+
+
         kafkaTemplate.send("categories", json);
         return "Data Categories has been sent";
     }
