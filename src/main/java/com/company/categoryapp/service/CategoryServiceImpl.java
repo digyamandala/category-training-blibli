@@ -1,44 +1,53 @@
 package com.company.categoryapp.service;
 
-import com.company.categoryapp.Category;
+import com.company.categoryapp.entity.Category;
+import com.company.categoryapp.repository.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class CategoryServiceImpl implements CategoryService {
 
-    private ArrayList<Category> categories = new ArrayList<>();
+//    private ArrayList<Category> categories = new ArrayList<>();
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
     @Override
     public Category create(Category category) {
-        categories.add(category);
-        return category;
+
+        //USING REPOSITORY
+        return categoryRepository.save(category);
+
     }
 
     @Override
     public Category update(Category category) {
-        Category curr;
-        for(int i = 0 ; i < categories.size() ; i++){
-            curr = categories.get(i);
-            if(category.getCategoryid().equals(curr.getCategoryid())){
-                categories.set(i, category);
-                return categories.get(i);
-            }
+
+        //USING REPOSITORY
+        Optional<Category> optional = categoryRepository.findById(category.getId());
+        if(optional.isPresent()){
+            Category temp;
+            temp = optional.get();
+            temp.setCategoryName(category.getCategoryName());
+
+            return categoryRepository.save(temp);
         }
         return null;
     }
 
     @Override
     public Category delete(String id) {
-        Category curr;
-        for(int i = 0 ; i < categories.size() ; i++){
-            curr = categories.get(i);
 
-            if(id.equals(curr.getCategoryid())){
-                categories.remove(curr);
-                return curr;
-            }
+        //USING REPOSITORY
+        Optional<Category> optional = categoryRepository.findById(id);
+        if(optional.isPresent()) {
+            Category temp = optional.get();
+            categoryRepository.delete(temp);
+            return temp;
         }
         return null;
     }
@@ -46,16 +55,22 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Category findById(String id) {
 
-        for(int i = 0 ; i < categories.size() ; i++){
-            if(id.equals(categories.get(i).getCategoryid())){
-                return categories.get(i);
-            }
+        //USING REPOSITORY
+        Optional<Category> optional = categoryRepository.findById(id);
+        if(optional.isPresent()){
+            Category temp = optional.get();
+            return temp;
         }
         return null;
     }
 
     @Override
+    public Category findByCategoryName(String name) {
+        return categoryRepository.findByCategoryName(name);
+    }
+
+    @Override
     public List<Category> findAll() {
-        return categories;
+        return categoryRepository.findAll();
     }
 }

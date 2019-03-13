@@ -1,6 +1,6 @@
 package com.company.categoryapp.service;
 
-import com.company.categoryapp.Category;
+import com.company.categoryapp.entity.Category;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

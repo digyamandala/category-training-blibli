@@ -1,2 +1,6 @@
-/Users/digyamp/Documents/TRAINING BLIBLI/DAY 1/Tugas/category-training-blibli/src/main/java/com/company/categoryapp/Category.java
+/Users/digyamp/Documents/TRAINING BLIBLI/DAY 1/Tugas/category-training-blibli/src/main/java/com/company/categoryapp/repository/CategoryRepository.java
+/Users/digyamp/Documents/TRAINING BLIBLI/DAY 1/Tugas/category-training-blibli/src/main/java/com/company/categoryapp/entity/Category.java
+/Users/digyamp/Documents/TRAINING BLIBLI/DAY 1/Tugas/category-training-blibli/src/main/java/com/company/categoryapp/controller/CategoryController.java
+/Users/digyamp/Documents/TRAINING BLIBLI/DAY 1/Tugas/category-training-blibli/src/main/java/com/company/categoryapp/service/CategoryServiceImpl.java
+/Users/digyamp/Documents/TRAINING BLIBLI/DAY 1/Tugas/category-training-blibli/src/main/java/com/company/categoryapp/service/CategoryService.java
 /Users/digyamp/Documents/TRAINING BLIBLI/DAY 1/Tugas/category-training-blibli/src/main/java/com/company/categoryapp/CategoryAppApplication.java

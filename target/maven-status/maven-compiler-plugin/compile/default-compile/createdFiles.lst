@@ -1,0 +1,6 @@
+com/company/categoryapp/CategoryAppApplication.class
+com/company/categoryapp/service/CategoryService.class
+com/company/categoryapp/entity/Category.class
+com/company/categoryapp/repository/CategoryRepository.class
+com/company/categoryapp/controller/CategoryController.class
+com/company/categoryapp/service/CategoryServiceImpl.class
